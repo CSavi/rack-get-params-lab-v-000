@@ -17,23 +17,15 @@ class Application
         resp.write @@cart.each {|c| "#{c}\n"}
       else
         resp.write "Your cart is empty."
+      end
 
-    if req.path.match(/items/)
+    elsif req.path.match(/add/)
       @@items.each do |item|
         resp.write "#{item}\n"
       end
-    # elsif reql.path.match(/cart/)
-    #   @@cart.each do |c|
-    #     resp.write "#{c}\n"
 
-    # elsif req.path.match(/search/)
-    #   search_term = req.params["q"]
-    #   resp.write handle_search(search_term)
 
-      # if @@cart.include?(search_term)
-      #   resp.write "#{search_term}"
-      # else
-      #   resp.write "Couldn't find #{search_term}"
+
     else
       resp.write "Path Not Found"
     end
