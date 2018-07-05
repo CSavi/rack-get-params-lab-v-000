@@ -20,14 +20,13 @@ class Application
       end
 
     elsif req.path.match(/add/)
-      add_item = req.params["item"]
-      if @@items.include?(search_term)
-      @@items.each do |item|
-        resp.write "#{item}\n"
+      add_item = req.params[item]
+
+      if @@items.include?(add_item)
+        resp.write @@items.each {|item|"#{item}\n"}
+      else
+        resp.write "We do not have that item."
       end
-
-
-
     else
       resp.write "Path Not Found"
     end
