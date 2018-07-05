@@ -12,10 +12,10 @@ class Application
 
       resp.write handle_search(search_term)
     elsif req.path.match(/cart/)
-      if @@cart.include?(search_term)
-        @@cart.each {|c| resp.write "#{c}\n"}
-      else
+      if @@cart.length == 0
         resp.write "Your cart is empty."
+      else
+        @@cart.each {|c| resp.write "#{c}\n"}
       end
 
     elsif req.path.match(/add/)
