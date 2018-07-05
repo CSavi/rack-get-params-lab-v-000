@@ -20,6 +20,8 @@ class Application
       end
 
     elsif req.path.match(/add/)
+      search_term 
+      if @@items.include?(search_term)
       @@items.each do |item|
         resp.write "#{item}\n"
       end
