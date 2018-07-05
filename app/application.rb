@@ -20,7 +20,7 @@ class Application
       end
 
     elsif req.path.match(/add/)
-      add_item = req.params[item]
+      add_item = req.params["item"]
 
       if @@items.include?(add_item)
         resp.write @@items.each {|item|"#{item}\n"}
@@ -30,10 +30,9 @@ class Application
     else
       resp.write "Path Not Found"
     end
-  end
-
     resp.finish
   end
+
 
   def handle_search(search_term)
     if @@items.include?(search_term)
