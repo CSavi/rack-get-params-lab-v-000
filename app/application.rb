@@ -11,10 +11,9 @@ class Application
       search_term = req.params["q"]
 
       resp.write handle_search(search_term)
-
     elsif req.path.match(/cart/)
       if @@cart.include?(search_term)
-        resp.write @@cart.each {|c| "#{c}\n"}
+        @@cart.each {|c| resp.write "#{c}\n"}
       else
         resp.write "Your cart is empty."
       end
@@ -23,7 +22,7 @@ class Application
       add_item = req.params["item"]
 
       if @@items.include?(add_item)
-        resp.write @@items.each {|item|"#{item}\n"}
+        @@items.each {|item| resp.write "#{item}\n"}
       else
         resp.write "We do not have that item."
       end
