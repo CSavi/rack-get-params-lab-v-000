@@ -14,8 +14,7 @@ class Application
 
     elsif req.path.match(/cart/)
       if @@cart.include?(search_term)
-        resp.write @@cart.each do |c|
-        resp.write "#{c}\n"
+        resp.write @@cart.each {|c| "#{c}\n"}
       else
         resp.write "Couldn't find #{search_term}"
 
