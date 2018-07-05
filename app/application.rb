@@ -20,7 +20,7 @@ class Application
       end
 
     elsif req.path.match(/add/)
-      add_item = req.params[item]
+      add_item = req.params["item"]
       if @@items.include?(search_term)
       @@items.each do |item|
         resp.write "#{item}\n"
