@@ -16,7 +16,7 @@ class Application
       if @@cart.include?(search_term)
         resp.write @@cart.each {|c| "#{c}\n"}
       else
-        resp.write "Couldn't find #{search_term}"
+        resp.write "Your cart is empty."
 
     if req.path.match(/items/)
       @@items.each do |item|
