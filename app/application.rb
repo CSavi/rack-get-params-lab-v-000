@@ -7,7 +7,7 @@ class Application
     resp = Rack::Response.new
     #req = Rack::Request.new(env)
 
-    if req.path.match(/search/)
+  elsif req.path.match(/search/)
       search_term = req.params["q"]
 
       resp.write handle_search(search_term)
@@ -29,7 +29,7 @@ class Application
       end
     else
       resp.write "Path Not Found"
-    end   
+    end
   end
 
 
